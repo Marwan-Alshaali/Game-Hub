@@ -5,7 +5,7 @@
 
 body {
 	background-image: linear-gradient(to bottom right, pink, purple);
-	height: 170vh;
+	height: 240vh;
 	font-family: sans-serif;
 }
 
@@ -22,10 +22,29 @@ body {
 
 .title_border {
 	border: 2px solid grey;
+	transition: 200ms;
+}
+
+.title_border:hover {
+	transform: translateY(-2px);
 }
 
 .title-pad {
 	padding-left: 20%;
 	padding-right: 20%;
 	padding-top: 2%;
+}
+
+.card {
+	transition: 200ms;
+}
+
+.card:hover {
+	transform: scale(1.1);
+}
+
+.card-img-top {
+	height: 300px;
+	width: 300px;
+	padding: 40px;
 }
