@@ -1,0 +1,48 @@
+#score {
+	text-align: center;
+}
+
+#game {
+	width: 600px;
+	height: 300px;
+	border: 2px black solid;
+	margin: auto;
+	background-image: url(img/bg.png);
+	background-size: cover;
+}
+
+#dino {
+	height: 75px;
+	width: 75px;
+	position: relative;
+	top: 225px;
+	background-image: url(img/dino.png);
+	background-size: cover;
+}
+
+#rock {
+	height: 50px;
+	width: 50px;
+	position: relative;
+	top: 175px;
+	left: 550px;
+	background-image: url(img/rock.png);
+	background-size: cover;
+	animation: rock 1s infinite linear;
+}
+
+@keyframes rock {
+	0%{left: 550px;}
+	100%{left: -50px;}
+}
+
+.jump-animation {
+	animation: jump 0.5s;
+}
+
+@keyframes jump {
+	0%{top: 225px;}
+	30%{top: 150px}
+	70%{top: 150px}
+	100%{top: 225px;}
+}

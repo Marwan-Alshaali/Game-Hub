@@ -1,0 +1,31 @@
+* {
+	padding: 0;
+	magin: 0;
+}
+
+body {
+	background-image: linear-gradient(to bottom right, pink, purple);
+	height: 170vh;
+	font-family: sans-serif;
+}
+
+.card-deck {
+	margin-top: 10vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card_border {
+	border: 2px solid grey;
+}
+
+.title_border {
+	border: 2px solid grey;
+}
+
+.title-pad {
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 2%;
+}
