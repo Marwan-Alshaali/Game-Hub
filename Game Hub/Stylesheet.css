@@ -1,12 +1,120 @@
+:root {
+	--neon: hsl(317 100% 54%);
+	--bg: hsl(323 21% 16%);
+}
+
 * {
 	padding: 0;
 	magin: 0;
+	box-sizing: border-box;
 }
 
 body {
-	background-image: linear-gradient(to bottom right, pink, purple);
+	background: var(--bg);
 	height: 240vh;
 	font-family: sans-serif;
+}
+
+.title {
+	animation: color-fade 5s infinite;
+	letter-spacing: 5px;
+	transition: 1s;
+	text-shadow: 0px 0px 20px hsl(255 0% 40%);
+	transform: translateY(-5px);
+}
+
+.title:hover {
+	letter-spacing: 10px;
+	transform: scale(1.1);
+}
+
+.title_border {
+	transition: 200ms;
+	animation: glow-effect 5s infinite;
+}
+
+.title_border::before {
+	animation: reflection-glow-effect 5s infinite;
+}
+
+.title_border:hover {
+	transform: scale(1.01) translateY(-5px);
+}
+
+.title-pad {
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 2%;
+}
+
+@keyframes color-fade {
+	0% {color: white}
+	50% {color: var(--neon)}
+	100% {color: white}
+}
+
+.my-name {
+	padding-top: 20px;
+	transition: 1s;
+	position: relative;
+	animation: float 3s infinite;
+}
+
+
+.my-name::before {
+	content: '';
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	width: 20%;
+	height: 100%;
+	box-shadow: 0px 0px 40px var(--neon);
+	border-radius: 6px;
+}
+
+.my-name::after {
+	content: '';
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	width: 20%;
+	height: 100%;
+	border: solid 3px var(--neon);
+	border-radius: 6px;
+	box-shadow: 0px 0px 10px var(--neon) inset;
+}
+
+
+.arrow-line {
+	margin: auto;
+	padding: 2px;
+	width: 10px;
+	height: 20px;
+	background-color: grey;
+	position: relative;
+	top: 1px;
+	animation: float 3s infinite;
+}
+
+.arrow-point {
+	margin: auto;
+	width: 20px;
+	height: 20px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid grey;
+	animation: float 3s infinite;
+}
+
+@keyframes float {
+	0% {transform: translateY(0px);}
+	50% {transform: translateY(10px);}
+	100% {transform: translateY(0px);}
+}
+
+@keyframes fade-in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
 }
 
 .card-deck {
@@ -16,23 +124,58 @@ body {
 	justify-content: center;
 }
 
+.neon-border {
+	border: 0.4em solid var(--neon);
+	border-radius: 10px;
+	box-shadow: 0px 0px 40px var(--neon);
+	position: relative;
+}
+
+@keyframes glow-effect {
+	0% {box-shadow: 0px 0px 40px var(--neon);}
+	65% {box-shadow: 0px 0px 40px var(--neon);}
+	70% {box-shadow: 0px 0px 60px var(--neon);}
+	75% {box-shadow: 0px 0px 40px var(--neon);}
+	100% {box-shadow: 0px 0px 40px var(--neon);}
+}
+
+.neon-border::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: var(--neon);
+	transform: perspective(1000em) translateY(12em) rotateX(80deg) scale(0.75, 0.5);
+	filter: blur(20em);
+}
+
+@keyframes reflection-glow-effect {
+	0% {filter: blur(20em);}
+	65% {filter: blur(20em);}
+	70% {filter: blur(22em);}
+	75% {filter: blur(20em);}
+	100% {filter: blur(20em);}
+}
+
+.neon-border::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0px 0px 20px var(--neon) inset;
+	z-index: -1;
+}
+
 .card_border {
-	border: 2px solid grey;
-}
-
-.title_border {
-	border: 2px solid grey;
+	border: 0.125em solid var(--neon);
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px var(--neon);
+	position: relative;
 	transition: 200ms;
-}
-
-.title_border:hover {
-	transform: translateY(-2px);
-}
-
-.title-pad {
-	padding-left: 20%;
-	padding-right: 20%;
-	padding-top: 2%;
 }
 
 .card {
@@ -41,10 +184,34 @@ body {
 
 .card:hover {
 	transform: scale(1.1);
+	box-shadow: 0px 0px 30px var(--neon);
 }
 
 .card-img-top {
 	height: 300px;
 	width: 300px;
 	padding: 40px;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn-neon {
+	color: var(--neon);
+	text-shadow: 0px 0px 2px hsl(255 0% 40%);
+	background: transparent;
+	border: 0.125em solid var(--neon);
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px var(--neon);
+	position: relative;
+	transition: 500ms;
+}
+
+.btn-neon:hover {
+	color: var(--bg);
+	background: var(--neon);
+	border: 0.125em solid var(--neon);
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px var(--neon);
 }
